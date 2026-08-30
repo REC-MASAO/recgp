@@ -1,0 +1,39 @@
+name: Deploy to ConoHa WING
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # 手動実行も可能
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: ./
+          # アップロード除外リスト
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/.DS_Store
+            **/._*
+            **/originals/**
+            **/_originals/**
+            **/originals_with_bg/**
+            **/*_original.*
+            **/hero-bg.png
+            **/Instagram_original.png
+            **/server.py
+            **/*.md
+            **/.claude/**
