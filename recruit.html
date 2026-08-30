@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Recruit｜採用情報 | REC GROUP</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@400;500;600&family=Josefin+Sans:wght@200;300;400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* モノトーン基調：--gold は全ページ共通のグレーに統一 */
+    --gold: rgba(28,28,28,0.55);
+    --gold-dark: #1c1c1c;
+    --bg: #ffffff;
+    --bg-warm: #f3f3f3;
+    --ink: #1c1c1c;
+    --ink-soft: rgba(28,28,28,0.7);
+    --ink-light: rgba(28,28,28,0.5);
+    --transition: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Shippori Mincho', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-break: strict;
+    line-height: 1.9;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ===== HEADER ===== */
+  header {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 22px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.25);
+    border-bottom: none;
+  }
+  .logo {
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-weight: 300;
+    font-size: 17px;
+    letter-spacing: 0.3em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .logo span { color: var(--ink); }
+  .back-link {
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: rgba(28,28,28,0.6);
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .back-link:hover { color: var(--ink); }
+
+  /* ===== COMMON ===== */
+  section { padding: 120px 48px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.55em;
+    color: rgba(28,28,28,0.5);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: inline-block;
+  }
+  .section-title {
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-size: clamp(36px, 5.5vw, 60px);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 32px;
+    letter-spacing: 0.1em;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .body-text {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 2;
+    max-width: 720px;
+  }
+
+  /* ===== HERO SCROLL（ホームと同じモーション付き矢印） ===== */
+  .hero-scroll {
+    position: absolute; bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    opacity: 0;
+    animation: fadeInScroll 1s ease 1.5s both;
+    cursor: pointer;
+    z-index: 3;
+  }
+  @keyframes fadeInScroll { to { opacity: 1; } }
+  .scroll-chevron {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .scroll-chevron span {
+    display: block;
+    width: 12px; height: 12px;
+    border-right: 1.5px solid;
+    border-bottom: 1.5px solid;
+    border-color: rgba(28,28,28,0.35);
+    transform: rotate(45deg);
+    animation: chevronFall 1.6s ease-in-out infinite;
+  }
+  .scroll-chevron span:nth-child(1) { animation-delay: 0s; }
+  .scroll-chevron span:nth-child(2) { animation-delay: 0.2s; }
+  .scroll-chevron span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes chevronFall {
+    0%   { opacity: 0; transform: rotate(45deg) translate(-4px, -4px); }
+    50%  { opacity: 1; }
+    100% { opacity: 0; transform: rotate(45deg) translate(4px, 4px); }
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 48px;
+    background: var(--bg);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    /* TODO: 美容師がスタイリストワークしているシネマティックな写真を /images/recruit/hero.jpg に配置 */
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0.3) 100%),
+      url('images/recruit/hero.jpg');
+    background-size: cover;
+    background-position: center right;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-tag {
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-size: 11px;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-title {
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-size: clamp(40px, 7vw, 88px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    margin-bottom: 32px;
+    color: var(--ink);
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(16px, 1.6vw, 19px);
+    color: var(--ink-soft);
+    line-height: 2.1;
+    max-width: none;
+    margin-bottom: 20px;
+    white-space: nowrap;
+  }
+  @media (max-width: 768px) {
+    .hero-sub { white-space: normal; font-size: 14px; }
+  }
+  .hero-meta {
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-size: 11px;
+    letter-spacing: 0.45em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 44px;
+    padding-bottom: 24px;
+    position: relative;
+    display: inline-block;
+  }
+  .hero-meta::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.7;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  /* ===== BUTTONS ===== */
+  .btn {
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 14px 42px;
+    display: inline-block;
+    transition: all 0.4s;
+    min-width: 170px;
+    text-align: center;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: #fff;
+    border: 1px solid var(--gold);
+  }
+  .btn-primary:hover { background: var(--gold-dark); border-color: var(--gold-dark); }
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid rgba(28,28,28,0.3);
+  }
+  .btn-outline:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  /* ===== MESSAGE SECTION ===== */
+  .message {
+    background: var(--bg-warm);
+    position: relative;
+    overflow: hidden;
+  }
+  .message::before { content: none; }
+  .message .section-inner {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .message-quote {
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-style: italic;
+    font-size: clamp(20px, 2.5vw, 28px);
+    color: var(--gold);
+    margin-bottom: 32px;
+    letter-spacing: 0.05em;
+  }
+  .message-headline {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(24px, 3.5vw, 38px);
+    font-weight: 500;
+    line-height: 1.7;
+    color: var(--ink);
+    margin-bottom: 48px;
+  }
+  .message-body {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 2.1;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* ===== STRENGTHS GRID ===== */
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 64px;
+  }
+  .strength-card {
+    text-align: left;
+    padding: 32px 24px;
+    border-top: 2px solid var(--gold);
+    background: #ffffff;
+  }
+  .strength-num {
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-style: italic;
+    font-size: 38px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .strength-card h3 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .strength-card p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+  }
+
+  /* ===== STORY / IMAGE BLOCK ===== */
+  .story {
+    background: var(--bg);
+  }
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .story-image {
+    aspect-ratio: 4/5;
+    background-image: url('images/recruit/kyuzin1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg-warm);
+  }
+  .story-text h2 { margin-bottom: 24px; }
+
+  /* ===== EMPLOYMENT TYPES ===== */
+  .types {
+    background: var(--bg-warm);
+  }
+  .types-tabs {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+  }
+  .types-tab {
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 18px 36px;
+    color: var(--ink-light);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+  }
+  .types-tab:hover { color: var(--ink); }
+  .types-tab.active {
+    color: var(--ink);
+    border-bottom-color: var(--gold);
+  }
+  .types-tab small {
+    display: block;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--ink-light);
+    margin-top: 6px;
+    text-transform: none;
+  }
+
+  .type-panel {
+    display: block;
+    scroll-margin-top: 120px;
+    padding-top: 40px;
+    margin-top: 80px;
+    border-top: 1px solid rgba(28,28,28,0.08);
+  }
+  .type-panel:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+  /* タブをアンカーリンク化 */
+  a.types-tab { text-decoration: none; }
+  a.types-tab:hover { color: var(--ink); }
+  a.types-tab:hover small { color: var(--ink); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .type-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .type-header h3 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(26px, 3.6vw, 38px);
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 16px;
+    letter-spacing: 0.1em;
+  }
+  .type-header p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .detail-table th, .detail-table td {
+    padding: 24px 24px;
+    text-align: left;
+    border-bottom: 1px solid rgba(28,28,28,0.08);
+    font-size: 14px;
+    vertical-align: top;
+  }
+  .detail-table th {
+    width: 220px;
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    background: rgba(201,169,110,0.04);
+  }
+  .detail-table td {
+    color: var(--ink-soft);
+    line-height: 1.9;
+  }
+
+  /* ===== EDUCATION ===== */
+  .education {
+    background: var(--bg);
+  }
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 56px;
+  }
+  .edu-card {
+    background: #fff;
+    padding: 40px 32px;
+    border-left: 3px solid var(--gold);
+  }
+  .edu-card h3 {
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .edu-card h4 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .edu-card p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+  }
+
+  /* ===== FAQ ===== */
+  .faq { background: var(--bg-warm); }
+  .faq-list { margin-top: 48px; }
+  .faq-item {
+    border-bottom: 1px solid rgba(28,28,28,0.1);
+    padding: 28px 0;
+  }
+  .faq-q {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 16px;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .faq-q::before {
+    content: 'Q';
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 22px;
+    line-height: 1;
+  }
+  .faq-a {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+    padding-left: 0;
+  }
+  .line-link {
+    color: var(--ink);
+    border-bottom: 1px solid rgba(28,28,28,0.4);
+    display: inline-block;
+    margin-top: 12px;
+    padding: 2px 4px;
+    transition: color 0.3s, border-color 0.3s, transform 0.3s cubic-bezier(0.16,1,0.3,1), background 0.3s;
+  }
+  .line-link:hover {
+    color: #06C755;
+    border-color: #06C755;
+    transform: translateY(-2px);
+    background: rgba(6,199,85,0.06);
+  }
+  .faq-a::before {
+    content: 'A';
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-style: italic;
+    color: rgba(28,28,28,0.3);
+    font-size: 22px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  /* ===== CTA ===== */
+  .cta {
+    background: #ffffff;
+    color: var(--ink);
+    text-align: center;
+  }
+  .cta .section-title { color: var(--ink); }
+  .cta .section-title em { color: var(--gold); }
+  .cta-text {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 2;
+    max-width: 600px;
+    margin: 0 auto 48px;
+  }
+  /* クリスタル／ガラス調 LINEボタン */
+  .cta .btn-primary {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 18px 36px;
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    min-width: 0;
+    text-transform: none;
+    border-radius: 4px;
+    background: linear-gradient(180deg, #1ad96b 0%, #06C755 55%, #04a447 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.22);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.4),
+      inset 0 -1px 0 rgba(0,0,0,0.18),
+      0 10px 26px rgba(6,199,85,0.32),
+      0 2px 6px rgba(6,199,85,0.22);
+    transition:
+      transform 0.45s cubic-bezier(0.16,1,0.3,1),
+      box-shadow 0.45s cubic-bezier(0.16,1,0.3,1),
+      filter 0.45s ease;
+  }
+  /* グロス */
+  .cta .btn-primary::before {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      rgba(255,255,255,0.32) 0%,
+      rgba(255,255,255,0.06) 45%,
+      rgba(255,255,255,0) 60%,
+      rgba(0,0,0,0.08) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+  /* スイープ反射 */
+  .cta .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -60%;
+    width: 50%; height: 100%;
+    background: linear-gradient(
+      100deg,
+      transparent 0%,
+      rgba(255,255,255,0.35) 50%,
+      transparent 100%
+    );
+    transform: skewX(-20deg);
+    transition: left 0.9s cubic-bezier(0.16,1,0.3,1);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .cta .btn-primary:hover::after { left: 130%; }
+  .cta .btn-primary:hover {
+    transform: translateY(-3px);
+    color: #ffffff;
+    filter: brightness(1.06);
+    background: linear-gradient(180deg, #1ad96b 0%, #06C755 55%, #04a447 100%);
+    border-color: rgba(255,255,255,0.22);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.55),
+      inset 0 -1px 0 rgba(0,0,0,0.22),
+      0 16px 36px rgba(6,199,85,0.42),
+      0 4px 10px rgba(6,199,85,0.28);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #f3f3f3;
+    color: rgba(28,28,28,0.5);
+    padding: 60px 48px;
+    text-align: center;
+    border-top: 1px solid rgba(28,28,28,0.07);
+  }
+  footer p {
+    font-family: 'Josefin Sans', 'Shippori Mincho', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+  }
+
+  /* ===== MOBILE ===== */
+  /* スマホ専用の改行（PCでは非表示） */
+  .sp-br { display: none; }
+  @media (max-width: 768px) {
+    .sp-br { display: inline; }
+    header { padding: 16px 24px; }
+    section { padding: 48px 24px; }
+    .story-body { text-align: center; }
+    .sp-center { text-align: center; }
+    .hero { padding: 0 24px; height: auto; min-height: 0; padding-top: 120px; padding-bottom: 60px; }
+    .hero-bg {
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.88) 100%),
+        url('images/recruit/hero.jpg') center/cover;
+    }
+    .hero-tag::before { width: 24px; }
+    .strengths-grid { grid-template-columns: 1fr; gap: 24px; }
+    .story-grid { grid-template-columns: 1fr; gap: 40px; }
+    .edu-grid { grid-template-columns: 1fr; gap: 24px; }
+    .types-tabs { gap: 0; }
+    .types-tabs { gap: 0; flex-wrap: nowrap; justify-content: space-between; padding: 0 4px; }
+    .types-tab { padding: 14px 4px; font-size: 15px; letter-spacing: 0.08em; flex: 1; text-align: center; min-width: 0; line-height: 1.4; }
+    .types-tab small { font-size: 12px; letter-spacing: 0.08em; margin-top: 6px; }
+    .detail-table th, .detail-table td { display: block; width: 100%; }
+    .detail-table th { padding-bottom: 6px; }
+    .detail-table td { padding-top: 6px; padding-bottom: 24px; }
+  }
+
+  /* ===== REVEAL ANIMATION ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+    filter: blur(8px);
+    transition:
+      opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible { opacity: 1; transform: none; filter: blur(0); }
+  .reveal-delay-1 { transition-delay: 0.12s; }
+  .reveal-delay-2 { transition-delay: 0.24s; }
+  .reveal-delay-3 { transition-delay: 0.36s; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://recgroup.jp/" class="logo">RE<span>C</span> GROUP</a>
+  <a href="index.html" class="back-link">← Back to Home</a>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-tag reveal">Recruit ／ Career</p>
+    <h1 class="hero-title reveal reveal-delay-1">
+      Where <em>beauty</em><br>
+      becomes career.
+    </h1>
+    <p class="hero-sub reveal reveal-delay-2">
+      技術 × 感性 × 人としての成長。<br>
+      REC GROUP は、美容師という職業の可能性を、もっと自由に、もっと豊かにする場所です。
+    </p>
+  </div>
+  <div class="hero-scroll" onclick="document.querySelector('.message').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-chevron">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MESSAGE ============ -->
+<section class="message">
+  <div class="section-inner">
+    <p class="message-quote reveal">— A message to you</p>
+    <h2 class="message-headline reveal reveal-delay-1">
+      美容師として、<br>
+      もっと輝ける場所。
+    </h2>
+    <p class="message-body reveal reveal-delay-2">
+      私たちが大切にしているのは、<br class="sp-br">技術だけではありません。<br>
+      ひとりのスタイリストとして、<br class="sp-br">ひとりの人として、<br>
+      自分らしく輝ける環境を<br class="sp-br">共につくっていくこと。<br><br>
+      8つのブランドそれぞれに、<br class="sp-br">異なる個性と挑戦があります。<br>
+      鎌倉から立川、町田、国立まで<br class="sp-br">広がるネットワークの中で、<br>
+      あなたが<br class="sp-br">「いちばん好きな自分」<br class="sp-br">と必ず出会えます。
+    </p>
+  </div>
+</section>
+
+<!-- ============ STRENGTHS ============ -->
+<section class="strengths">
+  <div class="section-inner">
+    <p class="section-label reveal">Our Strengths</p>
+    <h2 class="section-title reveal reveal-delay-1">
+      選ばれる、<br class="sp-br"><em>6 つの理由</em>
+    </h2>
+    <p class="body-text reveal reveal-delay-2" style="max-width:none;">
+      創業以来、私たちが培ってきた経営哲学・教育文化・働き方の選択肢。REC GROUP ならではの強みをご紹介します。
+    </p>
+
+    <div class="strengths-grid">
+      <div class="strength-card reveal">
+        <div class="strength-num">01</div>
+        <h3>あなたらしく輝ける場所が見つかる</h3>
+        <p>トレンドサロン、地域密着サロン、マンツーマンサロン。REC GROUPには異なるコンセプトのブランドがあります。<br>「自分に合うサロンが見つからない」そんな悩みを抱える必要はありません。</p>
+      </div>
+      <div class="strength-card reveal reveal-delay-1">
+        <div class="strength-num">02</div>
+        <h3>美容師としての可能性を広げられる</h3>
+        <p>技術だけでなく、接客・集客・SNS・マネジメントまで学べる環境。<br>美容師としてだけでなく、一人のビジネスパーソンとして成長できます。</p>
+      </div>
+      <div class="strength-card reveal reveal-delay-2">
+        <div class="strength-num">03</div>
+        <h3>頑張った分だけ、未来が変わる</h3>
+        <p>成果は正当に評価し、給与やポジションへ。<br>年齢や勤続年数ではなく、挑戦する人がチャンスを掴める会社です。</p>
+      </div>
+      <div class="strength-card reveal">
+        <div class="strength-num">04</div>
+        <h3>仕事も人生も大切にできる</h3>
+        <p>美容師だから休めない。<br>そんな時代は終わりました。<br>休日、家族との時間、趣味、自分磨き。<br>人生そのものを楽しみながら働ける環境を整えています。</p>
+      </div>
+      <div class="strength-card reveal reveal-delay-1">
+        <div class="strength-num">05</div>
+        <h3>ずっと働き続けられる安心感</h3>
+        <p>結婚、出産、子育て。ライフステージが変わっても美容師を諦める必要はありません。<br>長く安心して働ける制度と文化があります。</p>
+      </div>
+      <div class="strength-card reveal reveal-delay-2">
+        <div class="strength-num">06</div>
+        <h3>独立も、幹部も、その先も</h3>
+        <p>スタイリストで終わる必要はありません。店長、マネージャー、FCオーナー、そして独立開業まで。<br>あなたが描く未来に合わせてキャリアを選択できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORY / IMAGE ============ -->
+<section class="story">
+  <div class="section-inner">
+    <div class="story-grid">
+      <div class="story-image reveal"></div>
+      <div class="story-text">
+        <p class="section-label reveal">Our Workplace</p>
+        <h2 class="section-title reveal reveal-delay-1">
+          1日の中で<br>
+          <em>「好き」</em><br class="sp-br">が増える場所
+        </h2>
+        <p class="body-text reveal reveal-delay-2 story-body">
+          スタッフ同士が互いを尊重し、<br class="sp-br">お客様との時間を心から大切にできる。<br class="sp-br">
+          そんな空気が流れるサロンこそが、<br class="sp-br">最高の技術を生み出すと<br class="sp-br">私たちは信じています。<br><br>
+          一人ひとりが主役。<br class="sp-br">だからこそ、<br class="sp-br">自由度の高い働き方と、<br class="sp-br">最先端の技術環境を整え、<br class="sp-br">
+          あなたが<br class="sp-br">「ここで働けてよかった」<br class="sp-br">と思える毎日をつくっています。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TYPES ============ -->
+<section class="types" id="types">
+  <div class="section-inner">
+    <p class="section-label reveal" style="text-align:center;">Employment Types</p>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">
+      あなたに合う、<br class="sp-br"><em>働き方</em>
+    </h2>
+    <p class="body-text reveal reveal-delay-2" style="margin: 0 auto 24px; text-align:center;">
+      ライフスタイルやキャリアプランに合わせて、<br class="sp-br">3つの雇用形態をご用意しています。
+    </p>
+    <p class="body-text reveal reveal-delay-2" style="margin: 0 auto 56px; text-align:center; font-size:13.5px;">
+      REC GROUPでは<br class="sp-br">「頑張りがしっかり給与に反映される環境」を<br class="sp-br">大切にしており、<br>
+      年功序列ではなく、<strong style="font-weight:500; color:var(--ink);">成果・挑戦・成長</strong>を<br class="sp-br">正当に評価します。
+    </p>
+
+    <!-- Tabs（アンカーリンク：各セクションへ） -->
+    <div class="types-tabs reveal">
+      <a href="#panel-full" class="types-tab">正社員<small>Full-time</small></a>
+      <a href="#panel-part" class="types-tab">パート<br class="sp-br">アルバイト<small>Part-time</small></a>
+      <a href="#panel-contract" class="types-tab">業務委託<small>Contract</small></a>
+    </div>
+
+    <!-- 正社員 -->
+    <div class="type-panel" id="panel-full">
+      <div class="type-header">
+        <h3>正社員</h3>
+        <p>長期的なキャリア形成と安定した収入を望む方へ。<br>手厚い福利厚生と充実した教育制度で、あなたの成長をサポートします。</p>
+      </div>
+      <table class="detail-table">
+        <tr><th>募集職種</th><td>スタイリスト／ジュニアスタイリスト／アシスタント</td></tr>
+        <tr><th>雇用形態</th><td>正社員</td></tr>
+        <tr><th>給与</th><td>
+          ◆ スタイリスト：月給 25万円〜 ＋ 歩合<br>
+          ◆ アシスタント：月給 23万円〜<br>
+          <small style="color:rgba(28,28,28,0.4); font-size:12px;">※経験・スキルに応じて優遇いたします</small>
+        </td></tr>
+        <tr><th>給与・還元について</th><td>
+          <p style="margin-bottom:14px;">REC GROUP では、安心して長く働ける環境づくりを大切にしています。<br>固定給だけではなく、<strong style="font-weight:500;">技術売上・指名売上・役職・チーム貢献</strong>などを総合的に評価し、頑張りがしっかり給与へ反映される仕組みです。</p>
+          <p style="margin-bottom:8px;">実際の実績では、</p>
+          ◆ 正社員スタイリスト平均還元率：<strong style="font-weight:500;">約 33%</strong><br>
+          ◆ 役職スタイリスト平均還元率：<strong style="font-weight:500;">約 40%</strong><br>
+          ◆ 一部幹部スタッフ還元率：<strong style="font-weight:500;">55% 超</strong> の実績あり<br>
+          <p style="margin-top:14px;">成果だけでなく、<strong style="font-weight:500;">挑戦・人間性・チームワーク</strong>も大切にしながら、長期的に成長できる環境を目指しています。</p>
+          <small style="color:rgba(28,28,28,0.4); font-size:12px;">※売上に対する給与総額割合（役職手当等含む）</small>
+        </td></tr>
+        <tr><th>勤務時間</th><td>9:00〜18:00（実働 8時間／休憩 1時間）<br>※店舗により異なります</td></tr>
+        <tr><th>休日・休暇</th><td>
+          ・週休 2日制<br>
+          ・年間休日 <strong style="font-weight:500;">115日</strong>（夏季休暇5日／年末年始休暇3日／誕生日休暇1日／リフレッシュ休暇2日含む）<br>
+          ・有給休暇<br>
+          ・有給取得推奨制度あり<br>
+          <small style="color:rgba(28,28,28,0.5); font-size:12px;">（実質年間 120日休み可能）</small><br>
+          ・慶弔休暇<br>
+          ・産休・育休完備
+        </td></tr>
+        <tr><th>福利厚生</th><td>社会保険完備（健康・厚生年金・雇用・労災）／健康診断／交通費支給／制服貸与／社員割引</td></tr>
+        <tr><th>教育制度</th><td>新人研修／グループ内テクニカル研修／<br>外部講師セミナー／海外研修制度／<br>コンテスト出場サポート</td></tr>
+        <tr><th>勤務地</th><td>Re:C Hair Design／Gem Hair Studio／Steed Tokyo／noa Hair Design／tiel／AZURE／farbe<br>※配属希望は柔軟に対応</td></tr>
+        <tr><th>応募資格</th><td>美容師免許保有者</td></tr>
+      </table>
+    </div>
+
+    <!-- パート -->
+    <div class="type-panel" id="panel-part">
+      <div class="type-header">
+        <h3>パート・アルバイト</h3>
+        <p>ライフスタイルに合わせて柔軟に働きたい方へ。<br>子育てや学業との両立、<br class="sp-br">副業としての勤務も歓迎します。</p>
+      </div>
+      <table class="detail-table">
+        <tr><th>募集職種</th><td>スタイリスト／アシスタント</td></tr>
+        <tr><th>雇用形態</th><td>パート・アルバイト</td></tr>
+        <tr><th>給与</th><td>
+          ◆ スタイリスト：時給 1,300円〜 ＋ 歩合<br>
+          ◆ アシスタント：時給 1,250円〜<br>
+          <small style="color:rgba(28,28,28,0.4); font-size:12px;">※経験・スキルに応じて優遇</small>
+        </td></tr>
+        <tr><th>勤務時間</th><td>週 2日〜／1日 4時間〜OK<br>シフト制（応相談）</td></tr>
+        <tr><th>休日・休暇</th><td>シフト制／有給休暇あり（法定通り）</td></tr>
+        <tr><th>福利厚生</th><td>交通費支給／社員割引<br>健康診断（条件あり）<br>社会保険（規定による）</td></tr>
+        <tr><th>教育制度</th><td>新人研修<br>グループ内技術共有会への参加可能</td></tr>
+        <tr><th>応募資格</th><td>美容師免許保有者／ブランクある方も歓迎</td></tr>
+        <tr><th>こんな方歓迎</th><td>・子育てと両立したい<br>・週末だけ働きたい<br>・現役復帰したい<br>・本業の傍ら美容師としての腕も活かしたい</td></tr>
+      </table>
+    </div>
+
+    <!-- 業務委託 -->
+    <div class="type-panel" id="panel-contract">
+      <div class="type-header">
+        <h3>業務委託</h3>
+        <p>自由に稼ぎたい方へ。場所と道具を提供し、<br>お客様との時間に集中できる環境です。</p>
+      </div>
+      <table class="detail-table">
+        <tr><th>募集職種</th><td>業務委託スタイリスト（フリーランス）</td></tr>
+        <tr><th>雇用形態</th><td>業務委託契約</td></tr>
+        <tr><th>報酬</th><td>
+          歩合率：売上の <strong style="font-weight:500;">50% 〜 65%</strong><br>
+          <small style="color:rgba(28,28,28,0.4); font-size:12px;">※指名・売上実績に応じて優遇</small>
+        </td></tr>
+        <tr><th>給与・還元について</th><td>
+          <p class="sp-center" style="margin-bottom:14px;">REC GROUP では、<br>「しっかり稼ぎたい」<br class="sp-br">「自由度高く働きたい」<br class="sp-br">という方に向けて、<strong style="font-weight:500;">高還元の</strong><br class="sp-br"><strong style="font-weight:500;">業務委託制度</strong>をご用意しています。</p>
+          <p style="margin-bottom:8px;">実際の実績では、</p>
+          ◆ 業務委託平均還元率：<strong style="font-weight:500;">約 53%</strong><br>
+          ◆ DIRECTOR 還元率：<strong style="font-weight:500;">64.8%</strong> の実績あり<br>
+          <p style="margin-top:14px;">入客チャンスや集客にも力を入れているため、顧客がまだ少ない方でも安心してスタート可能です。<br>頑張った分がしっかり収入へ反映される環境で、自分らしい働き方を実現できます。</p>
+        </td></tr>
+        <tr><th>勤務日数</th><td>週 1日〜／曜日・時間自由<br>※ご自身で自由設定</td></tr>
+        <tr><th>提供環境</th><td>セット面・シャンプー台・薬剤・消耗品すべて完備／カルテ管理システム／予約管理</td></tr>
+        <tr><th>独立支援</th><td>マーケティング相談／集客サポート<br>グループ内連携／独立への移行サポート</td></tr>
+        <tr><th>応募資格</th><td>美容師免許保有者／スタイリスト経験あり<br>・確定申告など、個人事業主として必要な手続きを行える方<br><small style="color:rgba(28,28,28,0.5); font-size:12px;">（税理士とも連携しておりますので、業務委託が初めての方もご安心ください）</small></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section class="education">
+  <div class="section-inner">
+    <p class="section-label reveal">Education System</p>
+    <h2 class="section-title reveal reveal-delay-1">
+      磨かれる、<br class="sp-br"><em>本物の技術</em>
+    </h2>
+    <p class="body-text reveal reveal-delay-2 sp-center">
+      美容師としての成長は、<br class="sp-br">サロンの環境で決まる。<br>
+      REC GROUP では、年間を通じて<br class="sp-br">多彩な研修プログラムをご用意しています。
+    </p>
+
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <h3>01</h3>
+        <h4>新人向けカリキュラム</h4>
+        <p>シャンプー、カラー、パーマ、カットの基礎技術を段階的に習得。
+        ジュニアスタイリストデビューまで、平均 18ヶ月のロードマップで丁寧に育成します。</p>
+      </div>
+      <div class="edu-card reveal reveal-delay-1">
+        <h3>02</h3>
+        <h4>グループ内技術共有会</h4>
+        <p>月に1度、全店舗のスタイリストが集まり、最新トレンドや独自技術を共有。<br>
+        ブランドを超えた学び合いから、新しいスタイルが生まれます。</p>
+      </div>
+      <div class="edu-card reveal reveal-delay-2">
+        <h3>03</h3>
+        <h4>外部講師セミナー</h4>
+        <p>業界第一線で活躍する講師を招き、年4回以上の特別セミナーを開催。
+        新しい技術と感性を吸収する機会を提供します。</p>
+      </div>
+      <div class="edu-card reveal reveal-delay-3">
+        <h3>04</h3>
+        <h4>海外研修制度</h4>
+        <p>パリ・ロンドン・ニューヨークなど、世界の最先端を肌で感じる海外研修制度。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="section-inner">
+    <p class="section-label reveal">FAQ</p>
+    <h2 class="section-title reveal reveal-delay-1">よくある<em>ご質問</em></h2>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q">配属店舗は希望できますか？</div>
+        <div class="faq-a"><div>はい、可能です。<br>希望ブランドや勤務地をお知らせください。<br>面接で詳しくご説明しながら決定いたします。</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">未経験・ブランクがあっても応募できますか？</div>
+        <div class="faq-a"><div>美容師免許をお持ちであれば歓迎します。<br>新人研修・再教育プログラムも整っていますので、ブランクのある方も安心してご応募ください。</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">面接ではどんなことを聞かれますか？</div>
+        <div class="faq-a"><div>技術以上に、あなたの「人柄」と「ビジョン」を大切にしています。<br>今までの経験、これから目指す美容師像など、お話しできれば嬉しいです。</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">サロン見学はできますか？</div>
+        <div class="faq-a"><div>もちろん可能です。<br>各店舗の雰囲気を直接感じていただける機会をご用意します。<br>公式LINEからお気軽にお申し込みください。<br><a href="https://lin.ee/ZcqyOxm" target="_blank" rel="noopener" class="line-link">公式LINEはこちら</a></div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">独立を考えていますが相談できますか？</div>
+        <div class="faq-a"><div>独立支援制度を整えており、正社員、業務委託からでも段階的な独立支援が可能です。<br>実際にグループ内独立した例も多数。<br>お気軽にご相談ください。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="section-inner">
+    <p class="section-label reveal" style="color: var(--gold);">Application</p>
+    <h2 class="section-title reveal reveal-delay-1">
+      Let's start <em>your story</em>.
+    </h2>
+    <p class="cta-text reveal reveal-delay-2">
+      お問い合わせ・エントリーは、<br class="sp-br">すべて公式LINEから。<br>
+      まずは「話を聞いてみたい」だけでも<br class="sp-br">大歓迎です。<br>
+      あなたからのメッセージを、<br class="sp-br">心からお待ちしています。
+    </p>
+    <a href="https://lin.ee/ZcqyOxm" target="_blank" rel="noopener" class="btn btn-primary reveal reveal-delay-3">公式LINEでエントリー</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 REC GROUP / 株式会社レック. All Rights Reserved.</p>
+</footer>
+
+<script>
+  // タブはアンカーリンク化。スムーズスクロールでヘッダー分のオフセット込みでジャンプ。
+  document.querySelectorAll('a.types-tab').forEach(tab => {
+    tab.addEventListener('click', e => {
+      const href = tab.getAttribute('href');
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px 80px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

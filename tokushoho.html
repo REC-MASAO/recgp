@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>特定商取引法に基づく表示 | REC GROUP</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@400;500;600&family=Josefin+Sans:wght@200;300;400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --gold: rgba(28,28,28,0.55);
+    --bg: #ffffff;
+    --ink: #1c1c1c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Shippori Mincho', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-break: strict;
+    line-height: 1.9;
+  }
+  a { color: inherit; text-decoration: none; }
+  /* リンクホバー：全アンカー共通 */
+  main a {
+    transition: color 0.3s ease, opacity 0.3s ease;
+  }
+  main a:hover {
+    opacity: 0.65;
+  }
+
+  header {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.25);
+    border-bottom: none;
+  }
+  .logo {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 0.3em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .logo span { color: var(--ink); }
+  .back-link {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: rgba(28,28,28,0.6);
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .back-link:hover { color: var(--ink); }
+
+  main { padding: 160px 48px 120px; max-width: 880px; margin: 0 auto; }
+  .page-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.55em;
+    color: rgba(28,28,28,0.5);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: inline-block;
+  }
+  .page-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 72px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(28,28,28,0.12);
+    color: var(--ink);
+  }
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0;
+  }
+  .info-table th, .info-table td {
+    text-align: left;
+    padding: 20px 16px;
+    border-bottom: 1px solid rgba(28,28,28,0.1);
+    vertical-align: top;
+    font-size: 14px;
+  }
+  .info-table th {
+    width: 240px;
+    font-weight: 500;
+    color: var(--ink);
+    font-family: 'Shippori Mincho', serif;
+    background: rgba(28,28,28,0.03);
+  }
+  .info-table td {
+    color: rgba(28,28,28,0.78);
+  }
+
+  footer {
+    background: #f3f3f3;
+    padding: 60px 48px;
+    text-align: center;
+  }
+  footer p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(28,28,28,0.5);
+  }
+
+  @media (max-width: 768px) {
+    header { padding: 18px 24px; }
+    main { padding: 110px 24px 80px; }
+    .page-title { margin-bottom: 36px; }
+    .info-table th, .info-table td { display: block; width: 100%; padding: 12px 14px; border-bottom: none; }
+    .info-table th { padding-bottom: 4px; }
+    .info-table td { padding-top: 0; padding-bottom: 16px; border-bottom: 1px solid rgba(28,28,28,0.1); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://recgroup.jp/" class="logo">RE<span>C</span> GROUP</a>
+  <a href="index.html" class="back-link">← Back to Home</a>
+</header>
+
+<main>
+  <p class="page-label">Legal Notice</p>
+  <h1 class="page-title">Legal<br>Notice</h1>
+
+  <table class="info-table">
+    <tr><th>事業者名</th><td>株式会社レック</td></tr>
+    <tr><th>代表者</th><td>代表取締役 関口 正生</td></tr>
+    <tr><th>資本金</th><td>1,000万円</td></tr>
+    <tr><th>所在地</th><td>〒251-0041<br>神奈川県藤沢市辻堂神台二丁目2番1号 アイクロス湘南5E</td></tr>
+    <tr><th>メールアドレス</th><td><a href="mailto:info@rec-hair.com" style="color: var(--ink); border-bottom: 1px solid rgba(28,28,28,0.4);">info@rec-hair.com</a></td></tr>
+    <tr><th>お問い合わせ</th><td><a href="https://lin.ee/ZcqyOxm" target="_blank" rel="noopener" style="color: var(--ink); border-bottom: 1px solid rgba(28,28,28,0.4);">REC GROUP 公式LINE</a></td></tr>
+    <tr><th>事業内容</th><td>美容室の経営／美容師の人材育成・教育／関連商品の企画・販売・配送代行／不動産事業</td></tr>
+    <tr><th>運営サロン</th><td>Re:C Hair Design／Gem Hair Studio／Steed Tokyo／noa Hair Design／tiel／AZURE／farbe ほか<br>※フランチャイズ（FC）事業によりブランド展開</td></tr>
+  </table>
+</main>
+
+<footer>
+  <p>© 2026 REC GROUP / 株式会社レック. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

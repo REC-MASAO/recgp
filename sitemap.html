@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>サイトマップ | REC GROUP</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@400;500;600&family=Josefin+Sans:wght@200;300;400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --gold: rgba(28,28,28,0.55);
+    --bg: #ffffff;
+    --ink: #1c1c1c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Shippori Mincho', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-break: strict;
+    line-height: 1.9;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  header {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.25);
+    border-bottom: none;
+  }
+  .logo {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 0.3em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .logo span { color: var(--ink); }
+  .back-link {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: rgba(28,28,28,0.6);
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .back-link:hover { color: var(--ink); }
+
+  main { padding: 160px 48px 120px; max-width: 1000px; margin: 0 auto; }
+  .page-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.55em;
+    color: rgba(28,28,28,0.5);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: inline-block;
+  }
+  .page-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 72px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(28,28,28,0.12);
+    color: var(--ink);
+  }
+  .sitemap-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 64px;
+  }
+  .group {
+    border-top: 1px solid rgba(28,28,28,0.2);
+    padding-top: 24px;
+  }
+  .group h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(28,28,28,0.55);
+    margin-bottom: 24px;
+  }
+  .group ul { list-style: none; padding: 0; }
+  .group li { margin-bottom: 16px; }
+  .group li a {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 15px;
+    color: rgba(28,28,28,0.78);
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: color 0.3s, transform 0.3s;
+  }
+  .group li a::before {
+    content: '→';
+    color: rgba(28,28,28,0.35);
+    font-size: 14px;
+    transition: transform 0.3s;
+  }
+  .group li a {
+    transition: color 0.3s, transform 0.3s, padding-left 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  .group li a:hover {
+    color: var(--ink);
+    padding-left: 6px;
+  }
+  .group li a:hover::before {
+    transform: translateX(6px);
+    color: var(--ink);
+  }
+  .group li small {
+    display: block;
+    margin-top: 2px;
+    margin-left: 24px;
+    font-size: 11px;
+    color: rgba(28,28,28,0.4);
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 0.15em;
+  }
+
+  footer {
+    background: #f3f3f3;
+    padding: 60px 48px;
+    text-align: center;
+  }
+  footer p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(28,28,28,0.5);
+  }
+
+  @media (max-width: 768px) {
+    header { padding: 18px 24px; }
+    main { padding: 110px 24px 80px; }
+    .page-title { margin-bottom: 40px; }
+    .sitemap-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://recgroup.jp/" class="logo">RE<span>C</span> GROUP</a>
+  <a href="index.html" class="back-link">← Back to Home</a>
+</header>
+
+<main>
+  <p class="page-label">Sitemap</p>
+  <h1 class="page-title">Sitemap</h1>
+
+  <div class="sitemap-grid">
+    <div class="group">
+      <h2>Main</h2>
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="index.html#philosophy">ブランドフィロソフィー</a></li>
+        <li><a href="index.html#news">ニュース</a><small>最新お知らせ（3件）</small></li>
+        <li><a href="news.html">ニュース一覧</a><small>全件アーカイブ</small></li>
+        <li><a href="index.html#salons">サロン情報</a></li>
+        <li><a href="index.html#stats">数字で見るRe:C</a></li>
+        <li><a href="index.html#works">Works ギャラリー</a></li>
+        <li><a href="index.html#recruit">採用情報</a></li>
+        <li><a href="index.html#brands">ブランド一覧</a></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <h2>Salons</h2>
+      <ul>
+        <li><a href="https://beauty.hotpepper.jp/slnH000454191" target="_blank" rel="noopener">Steed Tokyo 立川店</a></li>
+        <li><a href="https://beauty.hotpepper.jp/slnH000218487" target="_blank" rel="noopener">farbe 立川店</a></li>
+        <li><a href="https://beauty.hotpepper.jp/slnH000089429" target="_blank" rel="noopener">AZURE 国立店</a></li>
+        <li><a href="https://beauty.hotpepper.jp/slnH000488401" target="_blank" rel="noopener">noa Hair Design 町田店</a></li>
+        <li><a href="https://beauty.hotpepper.jp/slnH000780037" target="_blank" rel="noopener">tiel 町田店</a></li>
+        <li><a href="https://beauty.hotpepper.jp/slnH000725901" target="_blank" rel="noopener">Gem Hair Studio 平塚西口店</a></li>
+        <li><a href="https://beauty.hotpepper.jp/slnH000430499" target="_blank" rel="noopener">Gem Hair Studio 平塚店</a></li>
+        <li><a href="https://beauty.hotpepper.jp/slnH000320285" target="_blank" rel="noopener">Re:C Hair Design 鎌倉大船店</a></li>
+        <li><a href="https://beauty.hotpepper.jp/slnH000375936" target="_blank" rel="noopener">mEg Hair Creation（FC）</a></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="https://lin.ee/ZcqyOxm" target="_blank" rel="noopener">公式LINE（お問い合わせ）</a></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <h2>Legal</h2>
+      <ul>
+        <li><a href="privacy.html">プライバシーポリシー</a></li>
+        <li><a href="tokushoho.html">特定商取引法に基づく表示</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 REC GROUP / 株式会社レック. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>News | REC GROUP</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@400;500;600&family=Josefin+Sans:wght@200;300;400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --gold: rgba(28,28,28,0.55);
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --bg: #ffffff;
+    --ink: #1c1c1c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Shippori Mincho', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-break: strict;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* Header — frosted glass (ホームと同じ曇りガラス調) */
+  header {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.25);
+    border-bottom: none;
+  }
+  .logo {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 0.3em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .logo span { color: var(--ink); }
+  .back-link {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: rgba(28,28,28,0.6);
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .back-link:hover { color: var(--ink); }
+
+  /* Main */
+  main { padding: 160px 48px 120px; max-width: 1100px; margin: 0 auto; }
+
+  .page-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.55em;
+    color: rgba(28,28,28,0.5);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: inline-block;
+  }
+  .page-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 72px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(28,28,28,0.12);
+    color: #1c1c1c;
+  }
+
+  /* News list */
+  .news-list { display: flex; flex-direction: column; }
+  .news-item {
+    display: grid;
+    grid-template-columns: 140px 110px 1fr 30px;
+    align-items: center;
+    gap: 28px;
+    padding: 28px 8px;
+    border-bottom: 1px solid rgba(28,28,28,0.08);
+    transition: padding 0.3s, background 0.3s;
+    cursor: pointer;
+  }
+  .news-item:hover { padding-left: 24px; background: rgba(255,255,255,0.55); backdrop-filter: blur(8px); }
+  .news-date {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: rgba(28,28,28,0.5);
+  }
+  .news-tag {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(28,28,28,0.7);
+    border: 1px solid rgba(28,28,28,0.35);
+    padding: 6px 14px;
+    text-align: center;
+    background: transparent;
+  }
+  .news-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #1c1c1c;
+    letter-spacing: 0.04em;
+  }
+  .news-arrow {
+    color: rgba(28,28,28,0.35);
+    font-size: 18px;
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .news-item:hover .news-arrow { transform: translateX(8px); }
+
+  /* Footer */
+  footer {
+    background: #f3f3f3;
+    padding: 60px 48px;
+    text-align: center;
+  }
+  footer p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(28,28,28,0.5);
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    header { padding: 18px 24px; }
+    main { padding: 120px 24px 80px; }
+    .page-title { margin-bottom: 40px; }
+    .news-item {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 20px 8px;
+    }
+    .news-item:hover { padding-left: 8px; }
+    .news-tag { justify-self: start; }
+    .news-arrow { display: none; }
+    .news-title { font-size: 15px; }
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://recgroup.jp/" class="logo">RE<span>C</span> GROUP</a>
+  <a href="index.html" class="back-link">← Back to Home</a>
+</header>
+
+<main>
+  <p class="page-label reveal">All News</p>
+  <h1 class="page-title reveal">News<br>Archive</h1>
+
+  <div class="news-list">
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2026.04.01</span>
+      <span class="news-tag">Recruit</span>
+      <span class="news-title">2027年度 新卒採用エントリー受付開始</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2025.11.08</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">tiel 町田店 OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2025.09.08</span>
+      <span class="news-tag">Info</span>
+      <span class="news-title">本社移転のお知らせ（神奈川県藤沢市）</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2025.01.08</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">Gem Hair Studio 平塚西口店 OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2023.11.08</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">Ripple 狛江店（FC） OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2022.09.08</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">mEg Hair Creation 平間店（FC） OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2020.05.08</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">mEg Hair Creation 新川崎店(FC) OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2020.04.08</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">noa Hair Design 町田店 OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2019.08.23</span>
+      <span class="news-tag">Info</span>
+      <span class="news-title">株式会社メルシード（株式会社レック子会社）創業</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2019.07.08</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">mEg Hair Creation 鶴見店（FC） OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2019.06.08</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">Steed Tokyo 立川店 OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2018.10.08</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">Gem Hair Studio 平塚店 OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2018.04.02</span>
+      <span class="news-tag">Info</span>
+      <span class="news-title">株式会社レック 創業</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2017.03.08</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">mEg Hair Creation 矢向店（FC） OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2015.06.08</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">Re:C Hair Design OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2011.10.28</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">farbe（立川） OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+    <a href="#" class="news-item reveal">
+      <span class="news-date">2006.10.01</span>
+      <span class="news-tag">Brand</span>
+      <span class="news-title">AZURE（国立） OPEN</span>
+      <span class="news-arrow">→</span>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 REC GROUP / 株式会社レック. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px 80px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

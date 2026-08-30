@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# エディタ・IDE設定
+.vscode/
+.idea/
+.claude/
+
+# バックアップファイル
+images/originals/
+images/styles/_originals/
+images/logos/originals_with_bg/
+images/*_original.*
+images/**/_*_original.*
+images/**/_originals/
+
+# 未使用の大容量ファイル
+images/hero-bg.png
+images/logos/Instagram_original.png
+
+# ローカル開発用サーバー
+server.py
+*.log
+
+# 一時ファイル
+*.tmp
+*.swp
+Thumbs.db
