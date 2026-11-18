@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>tiel | REC GROUP</title>
+<meta name="description" content="tiel 町田店の公式紹介ページ。REC GROUPが展開するヘアデザインブランド。" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Josefin+Sans:wght@200;300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --ink:#1c1c1c; --bg:#ffffff; }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Shippori Mincho', serif; background:var(--bg); color:var(--ink); line-break:strict; }
+  a { color:inherit; text-decoration:none; }
+  img { display:block; max-width:100%; }
+
+  /* Header */
+  header {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:24px 48px; display:flex; align-items:center; justify-content:space-between;
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(16px) saturate(1.4);
+    -webkit-backdrop-filter:blur(16px) saturate(1.4);
+    box-shadow:0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.25);
+  }
+  .logo { font-family:'Josefin Sans', sans-serif; font-weight:300; font-size:18px; letter-spacing:0.3em; color:var(--ink); text-transform:uppercase; }
+  .logo span { color:var(--ink); }
+  .back-link {
+    font-family:'Josefin Sans', sans-serif; font-size:11px; letter-spacing:0.25em;
+    color:rgba(28,28,28,0.6); text-transform:uppercase; transition:color 0.3s;
+  }
+  .back-link:hover { color:var(--ink); }
+
+  /* Hero */
+  .brand-hero {
+    position:relative; min-height:70vh; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:160px 24px 80px;
+    background:linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,0.4)), url('images/tiel.jpg') center/cover no-repeat;
+  }
+  .brand-hero-inner { max-width:800px; }
+  .brand-logo-hero { max-height:90px; max-width:280px; margin:0 auto 40px; }
+  .brand-tagline {
+    font-family:'Josefin Sans', sans-serif; font-weight:300; font-size:12px;
+    letter-spacing:0.5em; text-transform:uppercase; color:rgba(28,28,28,0.65);
+    margin-bottom:24px;
+  }
+  .brand-catch {
+    font-family:'Shippori Mincho', serif; font-size:clamp(22px, 3.2vw, 36px);
+    font-weight:500; line-height:1.7; letter-spacing:0.1em; color:var(--ink);
+  }
+
+  /* Body sections */
+  main { max-width:960px; margin:0 auto; padding:80px 32px 120px; }
+  .brand-intro {
+    font-family:'Shippori Mincho', serif;
+    font-size:clamp(14px, 1.6vw, 17px); line-height:2.3; letter-spacing:0.08em;
+    color:rgba(28,28,28,0.78);
+    text-align:center;
+    margin-bottom:96px;
+  }
+
+  .info-block { margin-bottom:72px; }
+  .info-heading {
+    font-family:'Josefin Sans', sans-serif; font-weight:300; font-size:11px;
+    letter-spacing:0.5em; text-transform:uppercase; color:rgba(28,28,28,0.5);
+    margin-bottom:24px; padding-bottom:12px;
+    border-bottom:1px solid rgba(28,28,28,0.12);
+  }
+  .info-table { width:100%; border-collapse:collapse; font-family:'Noto Sans JP', sans-serif; }
+  .info-table th, .info-table td { text-align:left; padding:18px 8px; border-bottom:1px solid rgba(28,28,28,0.08); vertical-align:top; font-size:14px; font-weight:400; }
+  .info-table th { width:140px; color:rgba(28,28,28,0.55); font-weight:400; letter-spacing:0.08em; }
+  .info-table td { color:#1c1c1c; letter-spacing:0.02em; }
+  .info-table td a { border-bottom:1px solid rgba(28,28,28,0.3); padding-bottom:1px; transition:opacity 0.3s; }
+  .info-table td a:hover { opacity:0.6; }
+
+  /* CTA */
+  .cta-row {
+    display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-top:48px;
+  }
+  .cta-btn {
+    font-family:'Josefin Sans', sans-serif; font-weight:400; font-size:13px;
+    letter-spacing:0.25em; text-transform:uppercase; padding:18px 36px;
+    border:1px solid #1c1c1c; transition:all 0.4s;
+  }
+  .cta-btn.primary { background:#1c1c1c; color:#fff; }
+  .cta-btn.primary:hover { background:transparent; color:#1c1c1c; }
+  .cta-btn.outline { background:transparent; color:#1c1c1c; }
+  .cta-btn.outline:hover { background:#1c1c1c; color:#fff; }
+
+  /* Footer */
+  footer { background:#f3f3f3; padding:60px 48px; text-align:center; }
+  footer p { font-family:'Josefin Sans', sans-serif; font-size:11px; letter-spacing:0.2em; color:rgba(28,28,28,0.5); }
+
+  @media (max-width:768px) {
+    header { padding:18px 24px; }
+    .brand-hero { min-height:50vh; padding:120px 24px 60px; }
+    .brand-logo-hero { max-height:70px; max-width:220px; margin-bottom:28px; }
+    main { padding:60px 24px 80px; }
+    .brand-intro { margin-bottom:60px; }
+    .info-block { margin-bottom:48px; }
+    .info-table th { width:90px; font-size:12px; }
+    .info-table td { font-size:13px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://recgroup.jp/" class="logo">RE<span>C</span> GROUP</a>
+  <a href="https://recgroup.jp/" class="back-link">← Back to Home</a>
+</header>
+
+<section class="brand-hero">
+  <div class="brand-hero-inner">
+    <img src="images/logos/tiellogo.png?v=2" alt="tiel" class="brand-logo-hero" style="max-width:200px;" />
+    <p class="brand-tagline">tiel</p>
+    <h1 class="brand-catch">やさしい色と、<br>心地よい時間を。</h1>
+  </div>
+</section>
+
+<main>
+  <p class="brand-intro">
+    やわらかな色彩と、落ち着いた空間。<br>
+    tiel 町田店は、肩の力を抜いて過ごせる、大人のためのヘアサロンです。
+  </p>
+
+  <div class="info-block">
+    <h2 class="info-heading">Salon Information</h2>
+    <table class="info-table">
+      <tr>
+        <th>店舗名</th>
+        <td>tiel 町田店</td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>東京都町田市原町田6-20-19 STビル5F</td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><a href="tel:0428607070">042-860-7070</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="cta-row">
+    <a href="https://beauty.hotpepper.jp/slnH000780037" target="_blank" rel="noopener" class="cta-btn primary">HOT PEPPERで予約</a>
+    <a href="https://recgroup.jp/" class="cta-btn outline">REC GROUPへ戻る</a>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 REC GROUP / 株式会社レック. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

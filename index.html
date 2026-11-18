@@ -534,6 +534,30 @@
       aspect-ratio: 5/4;
       order: 2;
     }
+    /* ロゴのみ表示（店舗写真がないブランドカード用） */
+    .brand-logo-photo {
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.4s;
+    }
+    .brand-logo-photo:hover { background: #ececec; }
+    .brand-logo-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 15%;
+    }
+    .brand-logo-photo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .brand-logo-photo:hover img { transform: scale(1.04); }
     .salon-card-bg {
       position: absolute; inset: 0;
       transition: transform 1.2s cubic-bezier(0.16,1,0.3,1);
@@ -2126,16 +2150,16 @@
   <div class="section-inner">
     <h2 class="section-title reveal reveal-delay-1" style="text-align:center; margin-bottom: 64px;">10 Brands</h2>
     <div class="brands-grid reveal reveal-delay-2">
-      <div class="brand-item"><a href="https://beauty.hotpepper.jp/slnH000454191" target="_blank" rel="noopener"><img src="images/logos/Steedlogo.png?v=2" alt="Steed Tokyo" class="brand-logo" /></a></div>
-      <div class="brand-item"><a href="https://beauty.hotpepper.jp/slnH000826059" target="_blank" rel="noopener"><img src="images/logos/AWAYKElogo.webp" alt="Steed AWAYKE" class="brand-logo" /></a></div>
-      <div class="brand-item"><a href="https://beauty.hotpepper.jp/slnH000218487" target="_blank" rel="noopener"><img src="images/logos/farbelogo.png?v=2" alt="farbe" class="brand-logo" /></a></div>
-      <div class="brand-item"><a href="https://beauty.hotpepper.jp/slnH000089429" target="_blank" rel="noopener"><img src="images/logos/AZURElogo.png?v=2" alt="AZURE" class="brand-logo" /></a></div>
-      <div class="brand-item"><a href="https://beauty.hotpepper.jp/slnH000488401" target="_blank" rel="noopener"><img src="images/logos/noalogo.png?v=2" alt="noa Hair Design" class="brand-logo" /></a></div>
-      <div class="brand-item"><a href="https://beauty.hotpepper.jp/slnH000780037" target="_blank" rel="noopener"><img src="images/logos/tiellogo.png?v=2" alt="tiel" class="brand-logo" /></a></div>
-      <div class="brand-item"><a href="https://beauty.hotpepper.jp/slnH000725901" target="_blank" rel="noopener"><img src="images/logos/Gemlogo.png?v=2" alt="Gem Hair Studio" class="brand-logo" /></a></div>
-      <div class="brand-item"><a href="https://beauty.hotpepper.jp/slnH000675310/" target="_blank" rel="noopener"><img src="images/logos/Ripplelogo.png" alt="Ripple" class="brand-logo" /></a></div>
-      <div class="brand-item"><a href="https://beauty.hotpepper.jp/slnH000375936" target="_blank" rel="noopener"><img src="images/logos/mEglogo.png?v=2" alt="mEg Hair Creation" class="brand-logo" /></a></div>
-      <div class="brand-item"><a href="https://beauty.hotpepper.jp/slnH000320285" target="_blank" rel="noopener"><img src="images/logos/Reclogo.png?v=2" alt="Re:C Hair Design" class="brand-logo" /></a></div>
+      <div class="brand-item"><a href="https://steed.tokyo" target="_blank" rel="noopener"><img src="images/logos/Steedlogo.png?v=2" alt="Steed Tokyo" class="brand-logo" /></a></div>
+      <div class="brand-item"><a href="https://steed.tokyo" target="_blank" rel="noopener"><img src="images/logos/AWAYKElogo.webp" alt="Steed AWAYKE" class="brand-logo" /></a></div>
+      <div class="brand-item"><a href="https://merseed.co.jp" target="_blank" rel="noopener"><img src="images/logos/farbelogo.png?v=2" alt="farbe" class="brand-logo" /></a></div>
+      <div class="brand-item"><a href="https://merseed.co.jp" target="_blank" rel="noopener"><img src="images/logos/AZURElogo.png?v=2" alt="AZURE" class="brand-logo" /></a></div>
+      <div class="brand-item"><a href="noa.html"><img src="images/logos/noalogo.png?v=2" alt="noa Hair Design" class="brand-logo" /></a></div>
+      <div class="brand-item"><a href="tiel.html"><img src="images/logos/tiellogo.png?v=2" alt="tiel" class="brand-logo" /></a></div>
+      <div class="brand-item"><a href="gem.html"><img src="images/logos/Gemlogo.png?v=2" alt="Gem Hair Studio" class="brand-logo" /></a></div>
+      <div class="brand-item"><a href="https://meg-hair.com" target="_blank" rel="noopener"><img src="images/logos/Ripplelogo.png" alt="Ripple" class="brand-logo" /></a></div>
+      <div class="brand-item"><a href="https://meg-hair.com" target="_blank" rel="noopener"><img src="images/logos/mEglogo.png?v=2" alt="mEg Hair Creation" class="brand-logo" /></a></div>
+      <div class="brand-item"><a href="rec.html"><img src="images/logos/Reclogo.png?v=2" alt="Re:C Hair Design" class="brand-logo" /></a></div>
     </div>
   </div>
 </section>
@@ -2203,6 +2227,10 @@
                 <span class="info-value"><a href="https://beauty.hotpepper.jp/slnH000454191" target="_blank" rel="noopener" class="btn-hotpepper">HOT PEPPER</a></span>
               </div>
               <div class="info-row">
+                <span class="info-label">公式HP</span>
+                <span class="info-value"><a href="https://steed.tokyo" target="_blank" rel="noopener">steed.tokyo →</a></span>
+              </div>
+              <div class="info-row">
                 <span class="info-label">SNS</span>
                 <span class="info-value sns-list">
                   <a href="https://www.instagram.com/steedtokyo____" target="_blank" rel="noopener" class="info-sns-link" aria-label="Steed Tokyo 店舗 Instagram">
@@ -2252,6 +2280,10 @@
                 <span class="info-label">ご予約</span>
                 <span class="info-value"><a href="https://beauty.hotpepper.jp/slnH000826059" target="_blank" rel="noopener" class="btn-hotpepper">HOT PEPPER</a></span>
               </div>
+              <div class="info-row">
+                <span class="info-label">公式HP</span>
+                <span class="info-value"><a href="https://steed.tokyo" target="_blank" rel="noopener">steed.tokyo →</a></span>
+              </div>
             </div>
           </div>
         </div>
@@ -2291,6 +2323,10 @@
               <div class="info-row">
                 <span class="info-label">ご予約</span>
                 <span class="info-value"><a href="https://beauty.hotpepper.jp/slnH000218487" target="_blank" rel="noopener" class="btn-hotpepper">HOT PEPPER</a></span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">公式HP</span>
+                <span class="info-value"><a href="https://merseed.co.jp" target="_blank" rel="noopener">merseed.co.jp →</a></span>
               </div>
               <div class="info-row">
                 <span class="info-label">SNS</span>
@@ -2338,6 +2374,10 @@
               <div class="info-row">
                 <span class="info-label">ご予約</span>
                 <span class="info-value"><a href="https://beauty.hotpepper.jp/slnH000089429" target="_blank" rel="noopener" class="btn-hotpepper">HOT PEPPER</a></span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">公式HP</span>
+                <span class="info-value"><a href="https://merseed.co.jp" target="_blank" rel="noopener">merseed.co.jp →</a></span>
               </div>
               <div class="info-row">
                 <span class="info-label">SNS</span>
@@ -2598,6 +2638,70 @@
             <button type="button" class="slider-arrow next" aria-label="次の写真"></button>
             <div class="slider-dots"></div>
           </div>
+        </div>
+      </article>
+
+      <!-- mEg Hair Creation（FC展開） -->
+      <article class="salon-card reveal">
+        <div class="salon-card-info">
+          <div class="salon-card-content">
+            <div class="salon-name-row">
+              <img src="images/logos/mEglogo.png?v=2" alt="mEg Hair Creation" class="salon-logo-img" />
+            </div>
+            <p class="salon-catch">個性 × 自由、<br>&emsp;&emsp;&emsp;&emsp;&emsp;FCで広がるブランド</p>
+            <p class="salon-intro">mEg Hair Creationは、神奈川エリアに4店舗を展開するフランチャイズブランド。独自の世界観と施術クオリティで、お客様に新しい美容体験を届けています。</p>
+            <div class="salon-info-table">
+              <div class="info-row">
+                <span class="info-label">展開店舗</span>
+                <span class="info-value">矢向店 / 鶴見店 / 新川崎店 / 平間店</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">ご予約</span>
+                <span class="info-value"><a href="https://beauty.hotpepper.jp/slnH000375936" target="_blank" rel="noopener" class="btn-hotpepper">HOT PEPPER</a></span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">公式HP</span>
+                <span class="info-value"><a href="https://meg-hair.com" target="_blank" rel="noopener">meg-hair.com →</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="salon-card-photo brand-logo-photo">
+          <a href="https://meg-hair.com" target="_blank" rel="noopener" class="brand-logo-link">
+            <img src="images/logos/mEglogo.png?v=2" alt="mEg Hair Creation" />
+          </a>
+        </div>
+      </article>
+
+      <!-- Ripple by mEg -->
+      <article class="salon-card reveal">
+        <div class="salon-card-info">
+          <div class="salon-card-content">
+            <div class="salon-name-row">
+              <img src="images/logos/Ripplelogo.png" alt="Ripple" class="salon-logo-img" />
+            </div>
+            <p class="salon-catch">Ripple by mEg<br>&emsp;&emsp;&emsp;&emsp;&emsp;狛江から広がる、個性のうねり</p>
+            <p class="salon-intro">mEgブランドから生まれたRipple by mEg。狛江駅近の落ち着いた空間で、ひとりひとりの個性を引き出す施術をお届けします。</p>
+            <div class="salon-info-table">
+              <div class="info-row">
+                <span class="info-label">所在地</span>
+                <span class="info-value">東京都狛江市</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">ご予約</span>
+                <span class="info-value"><a href="https://beauty.hotpepper.jp/slnH000675310/" target="_blank" rel="noopener" class="btn-hotpepper">HOT PEPPER</a></span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">公式HP</span>
+                <span class="info-value"><a href="https://meg-hair.com" target="_blank" rel="noopener">meg-hair.com →</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="salon-card-photo brand-logo-photo">
+          <a href="https://meg-hair.com" target="_blank" rel="noopener" class="brand-logo-link">
+            <img src="images/logos/Ripplelogo.png" alt="Ripple" />
+          </a>
         </div>
       </article>
 
