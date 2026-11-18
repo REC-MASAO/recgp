@@ -711,6 +711,12 @@
       max-height: 50px;
       max-width: 240px;
     }
+    /* mEg と Ripple は小さめに見えるので拡大 */
+    img[alt^="mEg"].salon-logo-img,
+    img[alt^="Ripple"].salon-logo-img {
+      max-height: 72px;
+      max-width: 200px;
+    }
     /* AWAYKE は縦2段構成（AWAYKE＋Steed）で縦長なので高さを確保 */
     img[alt^="Steed AWAYKE"].salon-logo-img {
       max-height: 60px;
@@ -2700,10 +2706,12 @@
             </div>
           </div>
         </div>
-        <div class="salon-card-photo brand-logo-photo">
-          <a href="https://meg-hair.com" target="_blank" rel="noopener" class="brand-logo-link">
-            <img src="images/logos/Ripplelogo.png" alt="Ripple" />
-          </a>
+        <div class="salon-card-photo">
+          <div class="salon-slider">
+            <div class="slides">
+              <div class="slide"><img src="images/Ripple.jpg" alt="Ripple by mEg 店内" loading="lazy" /></div>
+            </div>
+          </div>
         </div>
       </article>
 
